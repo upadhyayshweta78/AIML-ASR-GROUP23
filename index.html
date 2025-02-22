@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASR Frontend</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      font-size: 16px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input[type="file"] {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #loading {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    #transcription {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: left;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    #completedTranscription {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      text-align: left;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Automatic Speech Recognition</h1>
+
+    <!-- Upload Audio File Section -->
+    <label for="audioFile">Upload Audio File</label>
+    <input type="file" id="audioFile" accept="audio/*">
+    <button id="transcribeButton" disabled>Transcribe Audio</button>
+
+    <!-- Record Audio Section -->
+    <label for="audioFile">Record Audio</label>
+    <button id="recordButton">Start Recording</button>
+    <button id="stopButton" disabled>Stop Recording</button>
+
+    <!-- Loading Animation -->
+    <div id="loading" style="display: none;">
+      <span class="loader">Loading...</span>
+    </div>
+
+    <!-- Transcription Result -->
+    <div id="transcription" class="transcription" style="display: none;"></div>
+
+    <!-- Completed Transcription -->
+    <div id="completedTranscription" class="transcription" style="display: none;">
+      <h3>Completed Transcription:</h3>
+      <p id="completedTranscriptionText"></p>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
